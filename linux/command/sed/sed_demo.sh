@@ -24,7 +24,18 @@ sed 's/daemon/new_daemon/g' demo
 #修改第一个匹配daemon的字符串替换成new_daemon，修改源文件demo
 sed -i 's/daemon/new_daemon/' demo
 
+#讲修改后的内容保存到output中
+sed 's/daemon/new_daemon/w output' demo
 
+#只将修改后的行保存到output中
+sed -n 's/daemon/new_daemon/w output' demo
+
+#w选项可以在任何情况下使用，不一定是修改操作
+sed '2,5 w output' test
+
+
+#在test文件中所有匹配到Directory字符串的行的后面插入insertfile的内容
+sed '/Directory/r insertfile' test
 
 
 #ps: mac版的sed和linux版的sed有所区别，为了安全修改操作他要求做备份
