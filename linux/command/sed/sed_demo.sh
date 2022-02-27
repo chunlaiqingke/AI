@@ -23,3 +23,10 @@ sed 's/daemon/new_daemon/g' demo
 
 #修改第一个匹配daemon的字符串替换成new_daemon，修改源文件demo
 sed -i 's/daemon/new_daemon/' demo
+
+
+
+
+#ps: mac版的sed和linux版的sed有所区别，为了安全修改操作他要求做备份
+#example
+sed -I "" -E "s/daemon/new_daemon/" demo
